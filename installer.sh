@@ -1,5 +1,5 @@
 #!/bin/sh
-web3j_version="4.5.8"
+web3j_version="4.5.9"
 installed_flag=0
 installed_version=""
 
