@@ -1,11 +1,11 @@
 #!/bin/sh
-web3j_version="4.5.8"
+web3j_version=${1:-"4.5.9"}
 installed_flag=0
 installed_version=""
 
 check_if_installed() {
   if [ -x "$(command -v web3j)" ] >/dev/null 2>&1; then
-    printf 'A Web3j installation exists on your system: '
+    printf 'A Web3j installation exists on your system.\n'
     installed_flag=1
   fi
 }
@@ -63,7 +63,7 @@ get_user_input() {
 check_version() {
   installed_version=$(web3j version | grep Version | awk -F" " '{print $NF}')  
   if [ "$installed_version" = "$web3j_version" ]; then
-      echo "You have the latest version of Web3j. Exiting."
+      echo "You have the latest version of Web3j (${installed_version}). Exiting."
       exit 0
     else
       echo "Your Web3j version is not up to date."
