@@ -1,5 +1,5 @@
 #!/bin/sh
-web3j_version=${1:-"4.5.9"}
+web3j_version=${1:-$(curl https://internal.services.web3labs.com/api/versions/latest)}
 installed_flag=0
 installed_version=""
 

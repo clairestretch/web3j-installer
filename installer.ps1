@@ -1,9 +1,10 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 $PSDefaultParameterValues['*:ErrorAction']='Stop'
-$web3j_version="4.5.9"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $ProgressPreference = 'SilentlyContinue'
+
+$web3j_version = $(Invoke-WebRequest -UseBasicParsing -Uri https://internal.services.web3labs.com/api/versions/latest).content
 
 New-Item -Force -ItemType directory -Path "${env:USERPROFILE}\.web3j" | Out-Null
 $url = "https://github.com/web3j/web3j-cli/releases/download/v${web3j_version}/web3j-${web3j_version}.zip"
